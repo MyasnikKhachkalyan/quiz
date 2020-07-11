@@ -1,0 +1,36 @@
+$height: 200px;
+$width: 500px;
+
+:host {
+  display: flex;
+  height: $height;
+  width: $width;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  border: 1px solid #dfe1e6;
+  transform: rotate(-2deg);
+  margin-bottom: 40px;
+}
+
+.layer2 {
+  display: flex;
+  height: $height;
+  width: $width;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  border: 1px solid #dfe1e6;
+  transform: rotate(4deg);
+ }
+
+.layer3 {
+  display: flex;
+  height: $height;
+  width: $width;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #dfe1e6;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  transform: rotate(-2deg);
+}
