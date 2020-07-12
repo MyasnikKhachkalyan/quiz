@@ -1,12 +1,14 @@
-<app-question-box>{{ currentQuestion.question }}</app-question-box>
+<div class="container">
+  <app-question-box>{{ currentQuestion.question }}</app-question-box>
 
-<app-option-container>
-  <app-option *ngFor="let option of currentQuestion.options" [state]="option.state" (click)="select(option)">
-    {{ option.text }}
-  </app-option>
-</app-option-container>
+  <app-option-container>
+    <app-option *ngFor="let option of currentQuestion.options"
+                [state]="option.state" [text]="option.text" [points]="'+' + option.possiblePoints"
+                (click)="select(option)">
+    </app-option>
+  </app-option-container>
 
-<button (click)="checkAnswer()">Check the answer</button>
-<button (click)="nextQuestion()" *ngIf="currentQuestion.checked">Next Question</button>
-
+  <button (click)="checkAnswer()">Check the answer</button>
+  <button (click)="nextQuestion()" *ngIf="currentQuestion.checked">Next Question</button>
+</div>
 

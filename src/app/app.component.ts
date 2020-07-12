@@ -4,7 +4,6 @@ import { STATE } from './option/option.component';
 interface Question {
   question: string;
   options: Option[];
-  answer: number;
   explanation?: string;
   checked: boolean;
 }
@@ -13,7 +12,6 @@ interface Option {
   text: string;
   state: STATE;
   possiblePoints: number;
-  id: number;
 }
 
 const questions: Question[] = [
@@ -23,29 +21,24 @@ const questions: Question[] = [
       {
         text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
         state: 'not-selected',
-        possiblePoints: 1,
-        id: 1
+        possiblePoints: 1
       },
       {
         text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
         state: 'not-selected',
-        possiblePoints: 3,
-        id: 2
+        possiblePoints: 3
       },
       {
         text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
         state: 'not-selected',
-        possiblePoints: 5,
-        id: 3
+        possiblePoints: 5
       },
       {
         text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
         state: 'not-selected',
-        possiblePoints: 7,
-        id: 4
+        possiblePoints: 7
       }
     ],
-    answer: 4,
     checked: false
   }
 ];
@@ -69,21 +62,11 @@ export class AppComponent {
   }
 
   checkAnswer(): void {
-    const isCorrect = this.check();
-    if (isCorrect) {
-      this.currentSelectedOption.state = 'selectedCorrect';
-    } else {
-      this.currentSelectedOption.state = 'selectedIncorrect';
-      this.currentQuestion.options.find((o) => o.id === this.currentQuestion.answer).state = 'selectedCorrect';
-    }
+    this.currentSelectedOption.state = 'checked';
     this.currentQuestion.checked = true;
 
     // this.index++;
     // this.currentQuestion = questions[this.index];
-  }
-
-  private check(): boolean {
-    return this.currentSelectedOption ? this.currentSelectedOption.id === this.currentQuestion.answer : false;
   }
 
   nextQuestion(): void {

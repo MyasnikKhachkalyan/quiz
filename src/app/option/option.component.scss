@@ -1,7 +1,7 @@
 :host {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   border: 1px solid #dfe1e6;
   border-radius: 5px;
   background-color: #fff;
@@ -9,6 +9,7 @@
   cursor: pointer;
   max-width: 500px;
   max-height: 100px;
+  padding: 10px;
   height: 30px;
   box-shadow: 0 8px 6px -6px rgba(0,0,0,0.16);
 
@@ -19,20 +20,27 @@
 }
 
 :host([state=selected]) {
-  background-color: #2da1fa;
+  background-color: #80b0ff;
 
   &:hover {
-    background-color: #3177f1;
+    background-color: #2da1fa;
   }
 }
 
-:host([state=selectedCorrect]) {
-  background-color: #48a74a;
-  border-color: #48a74a;
+:host([state=checked]) {
+  background-color: rgba(117, 255, 145, 0.3);
+  border-color: rgba(117, 255, 145, 0.3);
 }
 
-:host([state=selectedIncorrect]) {
-  background-color: #ff4949;
-  border-color: #ff4949;
+.points {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  height: 20px;
+  width: 20px;
+  border: 1px solid #dfe1e6;
+  font-size: 12px;
+  background-color: #fff;
+  color: #1d1d1d;
 }
-
